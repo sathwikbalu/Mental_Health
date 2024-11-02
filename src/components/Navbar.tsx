@@ -75,7 +75,7 @@ export const Navbar = () => {
               Community
             </Link>
             <Link
-              to="/ai-chat"
+              to="/"
               className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <Bot className="h-5 w-5" />
@@ -158,7 +158,7 @@ export const Navbar = () => {
               <span>Community</span>
             </Link>
             <Link
-              to="/ai-chat"
+              to="/"
               className="flex items-center space-x-1 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <Bot className="h-5 w-5" />

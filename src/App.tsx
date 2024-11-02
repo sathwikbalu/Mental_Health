@@ -19,7 +19,6 @@ import { CommunityPage } from "./components/community/CommunityPage";
 import { LoginForm } from "./components/auth/LoginForm";
 import { RegisterForm } from "./components/auth/RegisterForm";
 import { PhotoCapture } from "./components/PhotoCapture";
-import { AiChat } from "./components/AiChat";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
@@ -51,13 +50,24 @@ const PrivateRoute = ({
   return children;
 };
 
+const Footer = () => (
+  <footer className="bg-white dark:bg-gray-800 shadow-lg mt-auto py-4">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p className="text-center text-gray-600 dark:text-gray-300">
+        © {new Date().getFullYear()} Created by SathwikBalu. All rights
+        reserved.
+      </p>
+    </div>
+  </footer>
+);
+
 function AppContent() {
   const { isAuthenticated, user } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors flex flex-col">
       {isAuthenticated && <Navbar />}
-      <div className={isAuthenticated ? "pt-16" : ""}>
+      <div className={`${isAuthenticated ? "pt-16" : ""} flex-grow`}>
         <Routes>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
@@ -139,14 +149,6 @@ function AppContent() {
             }
           />
           <Route
-            path="/ai-chat"
-            element={
-              <PrivateRoute>
-                <AiChat />
-              </PrivateRoute>
-            }
-          />
-          <Route
             path="/games/bubble-pop"
             element={
               <PrivateRoute>
@@ -164,6 +166,7 @@ function AppContent() {
           />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }

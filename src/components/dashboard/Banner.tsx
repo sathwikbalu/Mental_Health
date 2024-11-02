@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Banner = () => (
-  <Link to="/ai-chat">
+  <Link to="/">
     <div className="relative h-64 mb-12 overflow-hidden rounded-2xl cursor-pointer">
       <img
         src="https://wallpapercave.com/wp/wp2316798.jpg"
